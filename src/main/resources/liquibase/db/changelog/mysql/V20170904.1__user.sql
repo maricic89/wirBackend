@@ -46,16 +46,6 @@ CREATE TABLE role_permission (
   CONSTRAINT fk_role_per FOREIGN KEY (permission_id) REFERENCES  permission(id)
 );
 
-CREATE TABLE token_black_list (
-  id BIGINT NOT NULL AUTO_INCREMENT,
-  jti VARCHAR(40) NOT NULL,
-  user_id BIGINT NOT NULL,
-  expires BIGINT NOT NULL,
-  is_black_listed SMALLINT,
-  PRIMARY KEY (id),
-  CONSTRAINT fk_token_user FOREIGN KEY (user_id) REFERENCES  user(id)
-);
-
 CREATE TABLE registration_token (
   id BIGINT NOT NULL AUTO_INCREMENT,
   registration_token VARCHAR(200) NOT NULL,
