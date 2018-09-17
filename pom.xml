@@ -13,6 +13,10 @@
         <mapstruct.version>1.1.0.Final</mapstruct.version>
         <spring-boot.version>2.0.4.RELEASE</spring-boot.version>
         <mysql-connector-java.version>5.1.6</mysql-connector-java.version>
+        <spring-security-jwt.version>1.0.9.RELEASE</spring-security-jwt.version>
+        <spring-security-oauth2.version>2.3.3.RELEASE</spring-security-oauth2.version>
+        <jjwt.version>0.7.0</jjwt.version>
+        <springfox-swagger.version>2.6.1</springfox-swagger.version>
     </properties>
 
     <parent>
@@ -35,12 +39,6 @@
             <artifactId>spring-boot-starter-web</artifactId>
             <version>${spring-boot.version}</version>
         </dependency>
-        <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.springframework.data/spring-data-commons-core &ndash;&gt;-->
-        <!--<dependency>-->
-            <!--<groupId>org.springframework.data</groupId>-->
-            <!--<artifactId>spring-data-commons-core</artifactId>-->
-            <!--<version>1.1.0.RELEASE</version>-->
-        <!--</dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -90,31 +88,31 @@
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
-            <version>2.6.1</version>
+            <version>${springfox-swagger.version}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
-            <version>2.6.1</version>
+            <version>${springfox-swagger.version}</version>
             <scope>compile</scope>
         </dependency>
         <!-- JWT -->
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt</artifactId>
-            <version>0.7.0</version>
+            <version>${jjwt.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.security.oauth</groupId>
             <artifactId>spring-security-oauth2</artifactId>
-            <version>2.3.3.RELEASE</version>
+            <version>${spring-security-oauth2.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-jwt</artifactId>
-            <version>1.0.9.RELEASE</version>
+            <version>${spring-security-jwt.version}</version>
         </dependency>
 
     </dependencies>

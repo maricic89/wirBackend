@@ -1,0 +1,56 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:mysql://172.17.0.2:3306/wir
+    username: wir
+    password: wir
+    driver-class-name: com.mysql.jdbc.Driver
+# ===============================
+# LIQUIBASE
+# ===============================
+  liquibase:
+    user: wir
+    password: wir
+    change-log: classpath:liquibase/db/changelog/wir.xml
+    url: jdbc:mysql://172.17.0.2:3306/wir
+  # ===============================
+# JPA
+# ===============================
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+# ===============================
+# SMTP EMAIL
+# ===============================
+  mail:
+    default-encoding: UTF-8
+    host: smtp.gmail.com
+    username: whoisright2018@gmail.com
+    password: Burekk23899
+    port: 587
+    protocol: smtp
+    test-connection: false
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+# ===============================
+# LOGGING
+# ===============================
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
+      springframework:
+        security: DEBUG
