@@ -19,15 +19,15 @@ public interface UserRepository extends JpaRepository<UserEntity, Long> {
     @Query(nativeQuery = true,
             value =
                     "SELECT DISTINCT "
-                            + "  user.CODE "
+                            + "  usr.* "
                             + "FROM "
-                            + "  USER user "
-                            + "  JOIN USER_ROLE ur on user.ID = ur.USER_ID "
-                            + "  JOIN ROLE r on ur.ROLE_ID = r.ID "
-                            + "  JOIN ROLE_PERMISSION rp on r.ID = rp.ROLE_ID "
-                            + "  JOIN PERMISSION p on rp.PERMISSION_ID = p.ID "
+                            + "  wir_user usr "
+                            + "  JOIN WIR_USER_ROLE ur on usr.ID = ur.USER_ID "
+                            + "  JOIN WIR_ROLE r on ur.ROLE_ID = r.ID "
+                            + "  JOIN WIR_ROLE_PERMISSION rp on r.ID = rp.ROLE_ID "
+                            + "  JOIN WIR_PERMISSION p on rp.PERMISSION_ID = p.ID "
                             + "WHERE "
-                            + "  user.id = :id")
+                            + "  usr.id = :id")
     List<String> getActiveAccountPermissionCodesByUserId(@Param("id") Long id);
 
 }

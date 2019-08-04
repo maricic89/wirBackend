@@ -18,8 +18,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     private TokenStore tokenStore;
 
     @Autowired
-    public ResourceServerConfig(
-                                TokenStore tokenStore) {
+    public ResourceServerConfig(TokenStore tokenStore) {
         this.tokenStore = tokenStore;
     }
 
@@ -35,8 +34,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     @Override
     public void configure(ResourceServerSecurityConfigurer resources) {
-        resources
-                .tokenStore(tokenStore);
+        resources.tokenStore(tokenStore);
     }
 
 }

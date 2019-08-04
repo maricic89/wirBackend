@@ -23,14 +23,13 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
-@Table(name = "user")
+@Table(name = "wir_user")
 public class UserEntity implements UserDetails, Serializable {
     private static final long serialVersionUID = 5217763288519949211L;
 
     @Id
     @Column(name = "id", unique = true, nullable = false, updatable = false)
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
-    @GenericGenerator(name = "native", strategy = "native")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "username", nullable = false)
@@ -42,11 +41,8 @@ public class UserEntity implements UserDetails, Serializable {
     @Column(name = "email", nullable = false)
     private String email;
 
-    @Column(name = "firstname", nullable = false)
-    private String firstName;
-
-    @Column(name = "lastname", nullable = false)
-    private String lastName;
+    @Column(name = "name", nullable = false)
+    private String name;
 
     @Column(name = "birthday", nullable = false)
     private LocalDate birthday;
@@ -69,6 +65,9 @@ public class UserEntity implements UserDetails, Serializable {
 
     @Column(name = "enabled")
     private boolean enabled;
+
+    @Column(name = "provider")
+    private String provider;
 
     @OneToMany(mappedBy = "role", fetch = FetchType.EAGER)
     private List<UserRoleEntity> userRoles;
@@ -109,20 +108,12 @@ public class UserEntity implements UserDetails, Serializable {
         this.email = email;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setName(final String name) {
+        this.name = name;
     }
 
     public LocalDate getBirthday() {
@@ -202,4 +193,11 @@ public class UserEntity implements UserDetails, Serializable {
         return enabled;
     }
 
+    public String getProvider() {
+        return provider;
+    }
+
+    public void setProvider(final String provider) {
+        this.provider = provider;
+    }
 }

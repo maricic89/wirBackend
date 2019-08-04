@@ -15,14 +15,13 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
-@Table(name = "role")
+@Table(name = "wir_role")
 public class RoleEntity implements Serializable {
     private static final long serialVersionUID = -4060817877772241700L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
-    @GenericGenerator(name = "native", strategy = "native")
     @Column(name = "id", unique = true, nullable = false, updatable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "code")

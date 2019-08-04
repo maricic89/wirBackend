@@ -13,14 +13,13 @@ import javax.persistence.Table;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "user_role")
+@Table(name = "wir_user_role")
 public class UserRoleEntity implements Serializable {
     private static final long serialVersionUID = -6264071930727805636L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
-    @GenericGenerator(name = "native", strategy = "native")
     @Column(name = "id", unique = true, nullable = false, updatable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     // bi-directional many-to-one association to Role

@@ -38,3 +38,7 @@ Now we have user (wir) with empty password and database (wir)
 Now if you are using linux just use
 # docker logs wir
 And find you address for local docker machine my is (host) 172.17.0.2 and default port is 3306 for mysql.
+
+
+
+mvn liquibase:update

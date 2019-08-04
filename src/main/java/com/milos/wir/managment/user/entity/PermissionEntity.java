@@ -13,7 +13,7 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
-@Table(name = "permission")
+@Table(name = "wir_permission")
 public class PermissionEntity implements Serializable {
     private static final long serialVersionUID = 3145480520502998784L;
 

@@ -51,7 +51,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     public UserEntity save(UserEntity userEntity) {
         UserEntity savedEntity = userRepository.save(userEntity);
         saveUserRoles(userEntity, savedEntity.getId());
-        String registrationToken = saveAndReturnUserRegistrationToken(savedEntity.getLastName(), savedEntity.getUsername());
+        String registrationToken = saveAndReturnUserRegistrationToken(savedEntity.getEmail(), savedEntity.getUsername());
 
         String appUrl = "http://localhost:8080/api/registration";
 
@@ -66,7 +66,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         registrationEmail.setSubject("Registration Confirmation");
         registrationEmail
                 .setText("To confirm your e-mail address, please click the link below:\n" + appUrl + "/confirm/" + registrationToken);
-        registrationEmail.setFrom("maricic89@gmail.com");
+        registrationEmail.setFrom("whoIsRight2018@gmail.com");
 
         mailSender.send(registrationEmail);
     }
