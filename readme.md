@@ -19,8 +19,8 @@ Installation of initial mysql database on docker image (for linux).
 
 Now we need to find current root password 
 # docker logs wir 
-(Search log and find initial password for root user)
-After that we need to access mysql command line with root user
+(Search log and find initial password for root userEntity)
+After that we need to access mysql command line with root userEntity
 # docker exec -it wir mysql -uroot -p
 (wir- name of current container)
 Paste there you initial root password to access mysql command line
@@ -28,13 +28,13 @@ When you are in that console you need to commit some changes on current scheme o
 # ALTER USER 'root'@'localhost' IDENTIFIED BY 'wir'; 
 (You need to use ; at the end, and this command is changing initial password)  
 # CREATE USER 'wir'@'%' IDENTIFIED BY 'wir';
-(This command crate user wir)
+(This command crate userEntity wir)
 # GRANT ALL PRIVILEGES ON *.* to 'wir'@'%'; 
-(This command gives all privileges on wir user)
+(This command gives all privileges on wir userEntity)
 # CRATE DATABASE wir;
 (This command creates wir database)
 
-Now we have user (wir) with empty password and database (wir)
+Now we have userEntity (wir) with empty password and database (wir)
 Now if you are using linux just use
 # docker logs wir
 And find you address for local docker machine my is (host) 172.17.0.2 and default port is 3306 for mysql.
